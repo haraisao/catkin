@@ -59,7 +59,10 @@ def generate_environment_script(env_script):
     # fetch environment after calling setup
     python_code = 'import os; print(dict(os.environ))'
     output = subprocess.check_output([env_script, sys.executable, '-c', python_code])
-    env_after = ast.literal_eval(output.decode('utf8'))
+    try:
+        env_after = ast.literal_eval(output.decode('utf8'))
+    except:
+        env_after = ast.literal_eval(output)
 
     # calculate added and modified environment variables
     added = {}

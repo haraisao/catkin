@@ -221,5 +221,16 @@ if(CMAKE_HOST_UNIX AND PROJECT_NAME STREQUAL "catkin")
   catkin_add_env_hooks(05.catkin_make_isolated SHELLS bash DIRECTORY ${catkin_EXTRAS_DIR}/env-hooks ${catkin_skip_install_env_hooks})
 endif()
 
+## add for windows
+if(WIN32)
+  if (NOT BOOST_DYN_LIB)
+     message("Boost static library...")
+     set(Boost_USE_STATIC_LIBS 1 CACHE BOOL "" FORCE)
+  else()
+     message("Select Boost DynamicLib")
+  endif()
+  add_definitions(-D_USE_MATH_DEFINES)
+endif()
+
 # requires stamp and environment files
 include(${catkin_EXTRAS_DIR}/catkin_python_setup.cmake)
