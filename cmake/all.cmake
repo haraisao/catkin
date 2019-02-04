@@ -223,12 +223,12 @@ endif()
 
 ## add for windows
 if(WIN32)
-  if (NOT BOOST_DYN_LIB)
-     message("Boost static library...")
-     set(Boost_USE_STATIC_LIBS 1 CACHE BOOL "" FORCE)
-  else()
-     message("Select Boost DynamicLib")
-  endif()
+  #if (NOT BOOST_DYN_LIB)
+  #   message("Boost static library...")
+  #   set(Boost_USE_STATIC_LIBS 1 CACHE BOOL "" FORCE)
+  #else()
+  #   message("Select Boost DynamicLib")
+  #endif()
   add_definitions(-D_USE_MATH_DEFINES)
 endif()
 

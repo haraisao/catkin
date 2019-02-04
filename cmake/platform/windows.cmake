@@ -82,6 +82,9 @@ if(WIN32)
 
   # keep minimum windows headers inclusion
   add_definitions(-DWIN32_LEAN_AND_MEAN)
+
+  # for boost 
+  add_definitions(-DBOOST_ALL_DYN_LINK)
 endif()
 
 if(MSVC)
