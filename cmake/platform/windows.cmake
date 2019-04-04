@@ -63,6 +63,7 @@ endif()
 if(BUILD_SHARED_LIBS)
   if(WIN32)
     set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+    set(WINDOWS_EXPORT_ALL_SYMBOLS ON)
   endif()
 endif()
 
@@ -85,6 +86,11 @@ if(WIN32)
 
   # for boost 
   add_definitions(-DBOOST_ALL_DYN_LINK)
+
+  if(DEFINED ENV{LOCAL_LIBRARY_PATH})
+    set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH};$ENV{LOCAL_LIBRARY_PATH})
+  endif()
+
 endif()
 
 if(MSVC)
