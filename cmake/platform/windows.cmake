@@ -8,6 +8,15 @@ if(NOT DEFINED BUILD_SHARED_LIBS)
   option(BUILD_SHARED_LIBS "Build dynamically-linked binaries" ON)
 endif()
 
+macro(intatll_python_cli cmd_name)
+  if(EXISTS $ENV{PYTHON_DIR}/Tools/cli64.exe)
+    install(PROGRAMS $ENV{PYTHON_DIR}/Tools/cli64.exe
+      DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+      RENAME ${cmd_name}.exe
+    )
+  endif()
+endmacro()
+
 # Windows/cmake make things difficult if building dll's. 
 # By default:
 #   .dll -> CMAKE_RUNTIME_OUTPUT_DIRECTORY
