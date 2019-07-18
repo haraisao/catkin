@@ -6,7 +6,8 @@ REM It tries it's best to undo changes from a previously sourced setup file befo
 REM Supported command line options:
 REM --extend: skips the undoing of changes from a previously sourced setup file
 
-set _SETUP_UTIL=@SETUP_DIR@/_setup_util.py
+rem set _SETUP_UTIL=@SETUP_DIR@/_setup_util.py
+set _SETUP_UTIL=%~dp0_setup_util.py
 
 if NOT EXIST "%_SETUP_UTIL%" (
   echo "Missing Python script: %_SETUP_UTIL%"
@@ -14,7 +15,8 @@ if NOT EXIST "%_SETUP_UTIL%" (
 )
 
 REM set the Python executable
-set _PYTHON="@PYTHON_EXECUTABLE@"
+rem set _PYTHON="@PYTHON_EXECUTABLE@"
+set _PYTHON=%PYTHON_EXE%
 
 REM compute Python home and normalize Python executable path
 set PYTHONHOME=

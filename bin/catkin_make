@@ -178,7 +178,7 @@ def main():
         elif args.use_nmake:
             cmake_args += ['-G', 'NMake Makefiles']
         elif args.use_vc15:
-            cmake_args += ['-G', 'Visual Studio 15 2017 Win64']
+            cmake_args += ['-G', 'Visual Studio 15 2017', '-A', 'x64']
             #args.no_build=True
         else:
             cmake_args += ['-G', 'Unix Makefiles']

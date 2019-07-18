@@ -8,7 +8,7 @@ if(NOT DEFINED BUILD_SHARED_LIBS)
   option(BUILD_SHARED_LIBS "Build dynamically-linked binaries" ON)
 endif()
 
-macro(intatll_python_cli cmd_name)
+macro(install_python_cli cmd_name)
   if(EXISTS $ENV{PYTHON_DIR}/Tools/cli64.exe)
     install(PROGRAMS $ENV{PYTHON_DIR}/Tools/cli64.exe
       DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -105,4 +105,5 @@ endif()
 if(MSVC)
   # https://blogs.msdn.microsoft.com/vcblog/2018/04/09/msvc-now-correctly-reports-__cplusplus/
   add_compile_options(/Zc:__cplusplus)
+  add_compile_options(/source-charset:utf-8)
 endif()
